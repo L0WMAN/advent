@@ -1,0 +1,15 @@
+/home/clow/repos/advent/bin/Debug/net6.0/advent
+/home/clow/repos/advent/bin/Debug/net6.0/advent.deps.json
+/home/clow/repos/advent/bin/Debug/net6.0/advent.runtimeconfig.json
+/home/clow/repos/advent/bin/Debug/net6.0/advent.dll
+/home/clow/repos/advent/bin/Debug/net6.0/ref/advent.dll
+/home/clow/repos/advent/bin/Debug/net6.0/advent.pdb
+/home/clow/repos/advent/obj/Debug/net6.0/advent.csproj.AssemblyReference.cache
+/home/clow/repos/advent/obj/Debug/net6.0/advent.GeneratedMSBuildEditorConfig.editorconfig
+/home/clow/repos/advent/obj/Debug/net6.0/advent.AssemblyInfoInputs.cache
+/home/clow/repos/advent/obj/Debug/net6.0/advent.AssemblyInfo.cs
+/home/clow/repos/advent/obj/Debug/net6.0/advent.csproj.CoreCompileInputs.cache
+/home/clow/repos/advent/obj/Debug/net6.0/advent.dll
+/home/clow/repos/advent/obj/Debug/net6.0/ref/advent.dll
+/home/clow/repos/advent/obj/Debug/net6.0/advent.pdb
+/home/clow/repos/advent/obj/Debug/net6.0/advent.genruntimeconfig.cache

@@ -1,0 +1,5 @@
+/home/clow/repos/advent/obj/Debug/net5.0/advent.csproj.AssemblyReference.cache
+/home/clow/repos/advent/obj/Debug/net5.0/advent.GeneratedMSBuildEditorConfig.editorconfig
+/home/clow/repos/advent/obj/Debug/net5.0/advent.AssemblyInfoInputs.cache
+/home/clow/repos/advent/obj/Debug/net5.0/advent.AssemblyInfo.cs
+/home/clow/repos/advent/obj/Debug/net5.0/advent.csproj.CoreCompileInputs.cache
