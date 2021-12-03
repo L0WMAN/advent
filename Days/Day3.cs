@@ -10,12 +10,15 @@ public class Day3 {
     int[] onesArray = new int[12];
     List<String> tempZeroes = new List<String>();
     List<String> tempOnes = new List<String>();
-    int[] oxygenGeneratorRating;
-    int[] co2ScrubberRating;
+    string oxygenGeneratorRating;
+    double ogrDecimal;
+    double scrubberDecimal;
+    string scrubberRating;
     int onesCount = 0;
     int zeroesCount = 0;
     List<String> workingList = new List<String>();
-    
+    int[] ogr = new int[12];
+    int[] co2 = new int[12];
     public void Calc(){
         string path = "Days/inputDay3.txt";
         using (StreamReader sr = File.OpenText(path)){
@@ -30,45 +33,6 @@ public class Day3 {
                     else if (tempString[i] == '0'){
                         zeroesArray[i]++;
                     }                
-                /*if (tempString[0] == '1'){
-                    onesArray[0]++;
-                }
-                else if (tempString[0] == '0'){
-                    zeroesArray[0]++;
-                }
-                
-                if (tempString[1] == '1'){
-                    onesArray[1]++;
-                }
-                else if (tempString[1] == '0'){
-                    zeroesArray[1]++;
-                }
-                
-                if (tempString[2] == '1'){
-                    onesArray[2]++;
-                }
-                else if (tempString[2] == '0'){
-                    zeroesArray[2]++;
-                }
-                
-                if (tempString[3] == '1'){
-                    onesArray[3]++;
-                }
-                else if (tempString[3] == '0'){
-                    zeroesArray[3]++;
-                }
-                
-                if (tempString[4] == '1'){
-                    onesArray[4]++;
-                }
-                else if (tempString[4] == '0'){
-                    zeroesArray[4]++;
-                }
-                  */              
-                else{
-                    Console.WriteLine("Shouldn't reach here");
-                }
-
             }
         }
         for (int i = 0; i < 12; i++){
@@ -102,31 +66,106 @@ public class Day3 {
         Console.WriteLine("Consumption: " + gammaDecimal*epsilonDecimal);
         }
     }
-    public void Calcp2(){
+    public double calcOGR(){
         string path = "Days/inputDay3.txt";
         using (StreamReader sr = File.OpenText(path)){
             while ((tempString = sr.ReadLine()) != null){
                 //Console.WriteLine(tempString);
-                tempString.ToCharArray();
-                //Console.WriteLine(tempString[0]);
-              
-                if (tempString[0] == '1'){
+                workingList.Add(tempString);
+                //Console.WriteLine(tempString[0]);           
+            }
+        }
+        for (int i = 0; i < 12; i++){
+            for (int j = 0; j < workingList.Count; j++){
+                tempString = workingList[j];
+                if (tempString[i] == '1'){
                     tempOnes.Add(tempString);
-                    
                 }
-                else if (tempString[0] == '0'){
+                else if (tempString[i] == '0'){
                     tempZeroes.Add(tempString);
                 }
             }
+            if (tempOnes.Count == tempZeroes.Count){
+                workingList = new List<String>(tempOnes);
+                Console.WriteLine("ones: " + workingList.Count);
+            }
+            else if (tempOnes.Count > tempZeroes.Count){
+                workingList = new List<String>(tempOnes);
+                Console.WriteLine("ones: " + workingList.Count);
+            }
+            else if (tempOnes.Count < tempZeroes.Count){
+                workingList = new List<String>(tempZeroes);
+                Console.WriteLine("zeroes: " + workingList.Count);
+            }
+            //Console.WriteLine(workingList.ElementAt(index:0));
+            tempOnes.Clear();
+            tempZeroes.Clear();
+            if (workingList.Count == 1){break;}
         }
-        if (tempOnes.Count > tempZeroes.Count){
-            workingList = tempOnes;
-            Console.WriteLine("ones: " + workingList.Count);
+        oxygenGeneratorRating = workingList[0];
+        Console.WriteLine("ogr: " + oxygenGeneratorRating);
+
+        for(int i = 0; i < 12; i++){
+            if (oxygenGeneratorRating[i] == '1'){
+                ogr[i] = 1;
+            }
+            else {
+                ogr[i] = 0;
+            }
+            ogrDecimal+= Math.Pow(2, 11-i)*ogr[i];
         }
-        else{
-            workingList = tempZeroes;
-            Console.WriteLine("zeroes: " + workingList.Count);
+        Console.WriteLine("OGR Decimal: " + ogrDecimal);
+        return ogrDecimal;
+    }
+    public double calcCO2(){
+        string path = "Days/inputDay3.txt";
+        using (StreamReader sr = File.OpenText(path)){
+            while ((tempString = sr.ReadLine()) != null){
+                //Console.WriteLine(tempString);
+                workingList.Add(tempString);
+                //Console.WriteLine(tempString[0]);
+            }
         }
-        Console.WriteLine(workingList.ElementAt(index:0));
+        for (int i = 0; i < 12; i++){
+            for (int j = 0; j < workingList.Count; j++){
+                tempString = workingList[j];
+                if (tempString[i] == '1'){
+                    tempOnes.Add(tempString);
+                }
+                else if (tempString[i] == '0'){
+                    tempZeroes.Add(tempString);
+                }
+            }
+            if (tempOnes.Count == tempZeroes.Count){
+                workingList = new List<String>(tempZeroes);
+                Console.WriteLine("zeroes: " + workingList.Count);
+            }
+            else if (tempOnes.Count < tempZeroes.Count){
+                workingList = new List<String>(tempOnes);
+                Console.WriteLine("ones: " + workingList.Count);
+            }
+            else if (tempOnes.Count > tempZeroes.Count){
+                workingList = new List<String>(tempZeroes);
+                Console.WriteLine("zeroes: " + workingList.Count);
+            }
+            tempOnes.Clear();
+            tempZeroes.Clear();
+            if (workingList.Count == 1){break;}
+        }
+        scrubberRating = workingList[0];
+        //Console.WriteLine("scrub: " + scrubberRating);
+        Int64.Parse(scrubberRating.ToCharArray());
+        Console.WriteLine("sr:" + scrubberRating);
+        for(int i = 0; i < 12; i++){
+            if (scrubberRating[i] == '1'){
+                co2[i] = 1;
+            }
+            else {
+                co2[i] = 0;
+            }
+            scrubberDecimal+= Math.Pow(2, 11-i)*co2[i];
+        }
+        Console.WriteLine("CO2Scrub: " + scrubberDecimal);
+        return scrubberDecimal;
     }
 }
