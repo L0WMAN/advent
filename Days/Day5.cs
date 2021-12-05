@@ -32,14 +32,40 @@ public class Day5{
 
             }
         }
-        Console.WriteLine(lines.Count);
-        Console.WriteLine("Min: "+ gridMin + " Max: "+ gridMax);
+        //Console.WriteLine(lines.Count);
+        //Console.WriteLine("Min: "+ gridMin + " Max: "+ gridMax);
         grid = new int[gridMax+1, gridMax+1];
 
         foreach (Line l in lines){
             //int xDiff = l.endX - l.startX;
             //int yDiff = l.endY - l.startY;
-            if (l.startX == l.endX){
+            if((Math.Abs(l.startX-l.endX) == Math.Abs(l.startY-l.endY))){
+                if(l.endX > l.startX){
+                    if(l.endY > l.startY){
+                        for (int i = 0; l.startX+i <= l.endX; i++){
+                            grid[l.startX+i, l.startY+i]++;
+                        }
+                    }
+                    else if (l.startY > l.endY){
+                        for (int i = 0; l.startX+i <= l.endX; i++){
+                        grid[l.startX+i, l.startY-i]++;
+                        }
+                    }
+                }
+                else if(l.startX > l.endX){
+                    if(l.endY > l.startY){
+                        for (int i = 0; l.endX+i <= l.startX; i++){
+                            grid[l.startX-i, l.startY+i]++;
+                        }
+                    }
+                    else if(l.startY > l.endY){
+                        for (int i = 0; l.endX+i <= l.startX; i++){
+                            grid[l.startX-i, l.startY-i]++;
+                        }
+                    }
+                }
+            }
+            else if (l.startX == l.endX){
                 if(l.endY > l.startY){
                     for (int i = 0; l.startY+i <= l.endY; i++){
                         grid[l.startX, l.startY+i]++;
@@ -51,7 +77,7 @@ public class Day5{
                     }
                 }           
             }
-            if(l.startY == l.endY){
+            else if(l.startY == l.endY){
                 if(l.endX > l.startX){
                     for (int i = 0; l.startX+i <= l.endX; i++){
                         grid[l.startX+i, l.startY]++;
@@ -67,12 +93,12 @@ public class Day5{
         int count = 0;
         for (int i = 0; i < gridMax+1; i++){
             for (int j = 0; j < gridMax+1; j++){
-                //Console.Write(grid[i,j]+" ");
+                //Console.Write(grid[j,i]+" ");
                 if (grid[i,j] >= 2){
                     count++;
                 }
             }
-            //Console.Write("\n");
+            Console.Write("\n");
         }
         Console.WriteLine("Two or more: " + count);
     }
