@@ -36,12 +36,14 @@ public class Day4 {
 
         foreach (int num in calledNumbers){
             foreach (board b in boardList){
-                b.searchBoard(num);
-                if (b.bingo){
-                    Console.WriteLine("num: " + num);
-                    Console.WriteLine("Mult: " + num*b.boardSum);
-                    return;
+                if (!b.bingo){
+                    b.searchBoard(num);
+                    if (b.bingo){
+                        Console.WriteLine("num: " + num);
+                        Console.WriteLine("Mult: " + num*b.boardSum);
+                    }
                 }
+                
             }
         }
     }
