@@ -5,15 +5,15 @@ public class Day3 {
     int[] epsilonRate = new int[12];
     double epsilonDecimal;
     int consumption;
-    string tempString;
+    string? tempString;
     int[] zeroesArray = new int[12];
     int[] onesArray = new int[12];
     List<String> tempZeroes = new List<String>();
     List<String> tempOnes = new List<String>();
-    string oxygenGeneratorRating;
+    string? oxygenGeneratorRating;
     double ogrDecimal;
     double scrubberDecimal;
-    string scrubberRating;
+    string? scrubberRating;
     int onesCount = 0;
     int zeroesCount = 0;
     List<String> workingList = new List<String>();

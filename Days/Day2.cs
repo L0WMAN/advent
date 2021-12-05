@@ -2,7 +2,7 @@ public class Day2 {
     int horizontal;
     int vertical;
     int aim;
-    string tempString;
+    string? tempString;
     public void Calc(){
         string path = "Days/inputDay2.txt";
         using (StreamReader sr = File.OpenText(path)){

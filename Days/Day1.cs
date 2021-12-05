@@ -1,7 +1,7 @@
 public class Day1
 {
             int count = 0;
-            string tempString;
+            string? tempString;
             int tempA = 0;
             int tempB = 0;
             int tempC = 0;
