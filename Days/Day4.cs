@@ -2,9 +2,7 @@ public class Day4 {
     string? tempString;
     string[]? splits;
     int[]? calledNumbers;
-    int boardCounter = 0;
     List<board> boardList = new List<board>();
-    bool globalBingo = false;
 
     public void Calc(){
         string path = "Days/inputDay4.txt";
@@ -13,18 +11,15 @@ public class Day4 {
             Console.WriteLine(tempString);
             splits = tempString.Split(',');
             //Console.WriteLine(splits[0]);
-
             calledNumbers = Array.ConvertAll(splits, s => int.Parse(s));
             //Console.WriteLine("ints pls : " + calledNumbers[0]);
             while ((tempString = sr.ReadLine()) != null){
                 //Console.WriteLine(tempString);
-
                 board tempBoard = new board();
                 for (int i = 0; i < 5; i++){
                     tempString = sr.ReadLine();
                     splits = tempString.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                    int[]? tempNums = Array.ConvertAll(splits, s => int.Parse(s));
-            
+                    int[]? tempNums = Array.ConvertAll(splits, s => int.Parse(s));            
                     for (int j = 0; j < 5; j++){
                         tempBoard.grid[i,j] = tempNums[j];
                     }
@@ -43,7 +38,6 @@ public class Day4 {
                         Console.WriteLine("Mult: " + num*b.boardSum);
                     }
                 }
-                
             }
         }
     }
@@ -91,7 +85,6 @@ public class Day4 {
                 }
             } 
                 this.bingo = true;
-            
                 return true;
             }
             else if (jSum == 5){
