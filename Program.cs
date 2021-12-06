@@ -4,4 +4,4 @@ Day6 d6 = new Day6();
 d6.Calc();
 Console.WriteLine(int.MaxValue);
 Console.WriteLine(ulong.MaxValue);
-d6.fishCount(256);
+d6.fishCountBetter(256);
