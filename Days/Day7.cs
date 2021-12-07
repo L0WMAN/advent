@@ -14,13 +14,10 @@ public class Day7{
                 hPositions = tempString.Split(',').Select(Int32.Parse).ToArray<int>();
             }
         }
-        //for (int i = 0; i < hPositions.Length; i++){
-        //    Console.WriteLine(hPositions[i]);
-        //}
         maxDistance = hPositions.Max();
         Console.WriteLine($"max: {maxDistance}");
         currentMinGas = sumOfSteps(maxDistance) * hPositions.Length;
-        //start at center
+
         for (int i=0; i <= maxDistance; i++){
             while (!breakFlag){
                 for (int j=0; j < hPositions.Length; j++){
