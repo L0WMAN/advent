@@ -1,7 +1,2 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-Day6 d6 = new Day6();
-d6.Calc();
-Console.WriteLine(int.MaxValue);
-Console.WriteLine(ulong.MaxValue);
-d6.fishCountBetter(256);
+﻿Day7 d7 = new Day7();
+d7.Calc();
