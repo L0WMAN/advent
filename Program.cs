@@ -1,2 +1,2 @@
-﻿Day7 d7 = new Day7();
-d7.Calc();
+﻿Day8 d8 = new Day8();
+d8.Calc();
